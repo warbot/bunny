@@ -6,5 +6,10 @@ if RUBY_VERSION.to_f < 1.9
       lambda {Bunny::SystemTimer::timeout(1) {}}.should_not raise_error
       lambda {Bunny::SystemTimer::timeout(1, nil) {}}.should_not raise_error
     end
+
+    it 'raises Bunny::SystemTimer::Error on timeout' do
+      lambda {Bunny::SystemTimer::timeout(1) { sleep(2) }}.
+        should raise_error(Bunny::SystemTimer::Error)
+    end
   end
 end

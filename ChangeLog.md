@@ -1,3 +1,10 @@
+## Changes between Bunny 1.7.1 and 1.7.2
+
+### Defined Bunny::SystemTimer::Error
+On Ruby 1.8 gem throws `uninitialized constant Bunny::SystemTimer::Error` exception
+lib/bunny/timeout.rb redefines Timeout to Bunny::SystemTimer. Which does not define `Error`.
+
+
 ## Changes between Bunny 1.7.0 and 1.7.1
 
 ### amq-protocol Dependendency Locked to 1.9.x

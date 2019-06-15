@@ -5,6 +5,9 @@ require "system_timer"
 module Bunny
   # Used for Ruby before 1.9
   class SystemTimer
+    class Error < ::Timeout::Error
+    end
+
     # Executes a block of code, raising if the execution does not finish
     # in the alloted period of time, in seconds.
     def self.timeout(seconds, exception = nil)
